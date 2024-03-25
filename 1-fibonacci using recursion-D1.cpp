@@ -1,33 +1,24 @@
 #include <stdio.h>
+void printFibonacci(int n)
+{
+   int n1 = 0, n2 = 1, n3;
+   
+   printf("%d %d ", n1, n2); 
 
-int power(int base, int exponent) {
-    if (exponent == 0)
-        return 1;
-    return base * power(base, exponent - 1);
+   for(int i=2; i<n; i++){
+      n3 = n1 + n2;
+      printf("%d ", n3);
+      n1 = n2;
+      n2 = n3;
+   }
 }
-
-int countDigits(int num) {
-    if (num == 0)
-        return 0;
-    return 1 + countDigits(num / 10);
+int main()
+{
+   int n;
+   printf("Enter the number of elements: ");
+   scanf("%d", &n);
+   printf("Fibonacci Series: ");
+   printFibonacci(n);
+   
+   return 0;
 }
-
-int isArmstrong(int num, int originalNum) {
-    if (num == 0)
-        return 0;
-    return power(num % 10, countDigits(originalNum)) + isArmstrong(num / 10, originalNum);
-}
-
-int main() {
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-
-    if (isArmstrong(num, num) == num)
-        printf("%d is an Armstrong number.\n", num);
-    else
-        printf("%d is not an Armstrong number.\n", num);
-
-    return 0;
-}
-
