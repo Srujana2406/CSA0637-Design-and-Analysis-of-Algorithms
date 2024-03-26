@@ -32,7 +32,7 @@ void floydWarshall(int graph[][V])
 			{
                 if (dist[i][k] != INT_MAX && dist[k][j] != INT_MAX &&
                     dist[i][j] > dist[i][k] + dist[k][j]) 
-					{
+		    {
                     dist[i][j] = dist[i][k] + dist[k][j];
                     }
             }
